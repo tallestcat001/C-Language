@@ -1,0 +1,5 @@
+﻿  Source.c
+  소스.cpp
+C:\Users\Administrator\Desktop\Program\소스.cpp(3,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+소스.obj : error LNK2005: main이(가) Source.obj에 이미 정의되어 있습니다.
+C:\Users\Administrator\Desktop\Program\x64\Debug\Program.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
