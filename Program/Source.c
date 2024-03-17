@@ -75,16 +75,18 @@ void main()
 #pragma region 산술 연산자
 
 	// 1. int (result1) 변수 = 심볼릭 상수 + 리터럴 상수
-	// 2. int (result2) 변수 = 심볼릭 상수 - 리터럴 상수
+	// 2. int (result2) 변수 = 리터럴 상수 - 리터럴 상수
 	// 3. int (result3) 변수 = 변수 * 심볼릭 상수
 	// 4. int (result4) 변수 = 변수 / 리터럴 상수
 
-	int i = 10;
+	const int i = 2;
+	int j = 14;
+
 	
-	printf("심볼릭 상수 + 리터럴 상수의 값은 : %d\n", i + 10);
-	printf("심볼릭 상수 - 리터럴 상수의 값은 : %d\n", i - 10);
-	printf("변수 * 심볼릭 상수의 값은 : %d\n", 10 * i);
-	printf("변수 / 리터럴 상수의 값은 : %d\n", 10 / 10);
+	printf("result1 : %d\n", i + 3);
+	printf("result2 : %d\n", 15 - 7);
+	printf("result3 : %d\n", 14 * i);
+	printf("result4 : %d\n", 14 / 2);
 
 #pragma endregion
 
