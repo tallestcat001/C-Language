@@ -168,34 +168,35 @@ void main()
 
 #pragma region 사분면
 
-	int x = 0;
+	int x = 2;
 	int y = 0;
 
-	if (x >= 0 && y >= 0)
+	if (x > 0 && y > 0)
 	{
 		printf("제 1사분면\n");
-		printf("x 절편은 : %d, 0\n", x);
-		printf("y 절편은 : 0, %d\n", y);
 	}
-	else if (x <= 0 && y >= 0)
+	else if (x < 0 && y > 0)
 	{
 		printf("제 2사분면\n");
-		printf("x 절편은 : %d, 0\n", x);
-		printf("y 절편은 : 0, %d\n", y);
 	}
-	else if (x <= 0 && y <= 0)
+	else if (x < 0 && y < 0)
 	{
 		printf("제 3사분면\n");
-		printf("x 절편은 : %d, 0\n", x);
-		printf("y 절편은 : 0, %d\n", y);
 	}
-	else if (x >= 0 && y <= 0)
+	else if (x > 0 && y < 0)
 	{
 		printf("제 4사분면\n");
+
+	}
+	else if (x != 0 && y == 0)
+	{
 		printf("x 절편은 : %d, 0\n", x);
+	}
+	else if (x == 0 && y != 0)
+	{
 		printf("y 절편은 : 0, %d\n", y);
 	}
-	else if (x == 0 && y == 0)
+	else
 	{
 		printf("원점\n");
 
