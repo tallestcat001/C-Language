@@ -1,129 +1,97 @@
 #include <stdio.h>
+#define SIZE 5
 void main()
 {
 
-#pragma region 반복문
+#pragma region 자료형 변환
 
-	// 프로그램내에서 특정한 작업을 반복적으로 수행하는 명령문.
+	// 서로 다른 자료형을 가지고 있는 변수끼리 연산이 이루어질 때 기존에 지정했던 자료형을 다른 자료형으로 변환하는 과정.
 
-#pragma region 증감 연산자
+#pragma region 암묵적 형변환
 
-	// 피연산자를 하나씩 증가시키거나 감소시킬 때 사용하는 연산자.
+	// 서로 다른 자료형으로 연산이 이루어질 때 자료형의 크기가 큰 자료형으로 변환되는 과정.
 
-	// int attack = 10;
-	// int damage = ++attack;
-	 
-	// printf("damage의 값은 : %d\n", damage);
-	// printf("attack의 값은 : %d\n", attack);
-	 
-	// damage = --attack;
-	 
-	// printf("damage의 값은 : %d\n", damage);
-	// printf("attack의 값은 : %d\n", attack);
-	 
-	// 전위 증감 연산자는 변수의 값을 증감시킨 후에 연산을 수행함. 
+	// int data = 10;
+	// float storage = 7.5f;
+ 
+	// printf("data + storage를 연산한 값은 : %f\n", data + storage);
 
-	// int count = 5;
-	// int result = count++;
-	 
-	// printf("result변수의 값은 : %d\n", result);
-	// printf("count변수의 값은 : %d\n", count);
-	 
-	// result = count--;
-	 
-	// printf("result변수의 값은 : %d\n", result);
-	// printf("count변수의 값은 : %d\n", count);
+	// data = storage; // 정수부분만 저장.
 
-	// 후위 증감 연산자는 연산을 수행한 다음 변수의 값을 증감시킴.
+	// printf("data의 값은 : %d\n", data);
+
+	// 표현범위가 작은 데이터에 표현범위가 큰 데이터를 저장하게 되면 암묵적으로 데이터 손실이 일어남.
 
 #pragma endregion
 
-#pragma region for문
+#pragma region 명시적 형변환
 
-	// 초기식을 연산하여 조건식의 결과에 따라 특정한 횟수만큼 반복하는 반복문.
+	// 연산이 이루어지기 전에 사용자가 직접 자료형을 변환하는 과정.
+	
+	// int health = 10;
+	// int armor = 3;
+ 
+	// float result = (float)health / armor; // int형의 나눗셈은 정수만 표현.
 
-	  // for (int i = 1; i < 6; i++)
-	  // {
-	  // 	printf("warning %d\n", i);
-	  // }
-
-	// for문의 경우 조건이 끝나는 형태와 반대로 초기식을 연산하게 되면 조건이 일치하지 않아 계속 반복적으로 실행되는 문제가 발생함.
-
-#pragma endregion
-
-#pragma region While문
-
-	// 특정 조건을 만족할 때까지 계속해서 주어진 명령문을 실행하는 반복문.
-
-	 //  int energy = 5;
-	 //  
-	 //  while (energy > 0)
-	 //  {
-	 // 	printf("energy의 값은 : %d\n", energy);
-	 //  	energy--;
-	 //  }
-
-	// whlie문의 경우 위에서 아래로 실행되며, 아래에 있는 명령문의 실행이 다 끝나면 다시 위에 있는 명령문으로 돌아가서 반복하는 구조.
+	// printf("result 변수의 값은 : %f\n",result);
+	
+	// 정수형 변수끼리 연산을 수행하게 되면 정수의 결과값만 가질 수 있음.
 
 #pragma endregion
 
-#pragma region do While문
+#pragma endregion
 
-	// 조건과 관계없이 한 번의 작업을 실행한 다음 조건에 따라 명령문을 실행하는 반복문.
+#pragma region 메크로
 
-	 //	char alphabet = 'A';
-	 //	
-	 //	do
-	 //	{
-	 //		printf("alphabet 변수의 값은 : %c\n", alphabet);
-	 //	} 
-	 //	while (alphabet == 'B');
+	// 프로그램내에서 특정한 데이터가 문자열로 정의되고 처리되는 과정.
+
+	// printf("SIZE 메크로의 값은 : %d\n", SIZE);
+
+	// 메크로의 경우 자료형이 존재하지 않으므로 메모리 공간을 가지고 있지 않음.
+
+	// 메크로의 과정은 컴파일 이전에 실행되며, 
+	// 각 메크로가 실행될 때 메크로의 대체 목록을 넣어야 하므로 프로그램의 크기가 커지게 됨.
 
 #pragma endregion
 
-#pragma region continue문
+#pragma region 단축 평가 계산
 
-	// 해당 조건문만 실행하지 않고, 반복문은 이어서 실행하는 제어문.
+	// 첫 번째 인수의 값을 결정하기에 충분하지 않으면 두 번째 인수를 계산하는 부분을 수행하지 않는 계산.
 
-	 //	for (int i = 1; i <= 5; i++)
-	 //	{
-	 //		if (i == 3)
-	 //		{
-	 //			continue; // 해당 값은 건너뜀
-	 //		}
-	 //		printf("i의 값은 : %d\n", i);
-	 //	}
-
-	// 반복문에서 continue문을 만나게 되면 다시 위에서 부터 차례대로 동작함.
-
-#pragma endregion
-
-#pragma region 이중 for문
-
-	//	for (int i = 0; i < 3; i++)
+	//	int x = 1;
+	//	int y = 2;
+	
+	//	if (x == 0 && y++)
 	//	{
-	//		printf("i의 값은 : %d\n", i);
-	//	
-	//		for (int j = 0; j < 5; j++)
-	//		{
-	//			printf("j의 값은 : %d\n", j);
-	//		}
+	//		printf("AND의 연산이 '참'입니다.\n");
 	//	}
+	
+	//	printf("y의 값은 : %d\n", y);
 
 #pragma endregion
 
-#pragma region 구구단
+#pragma region (1)부터 (10)까지의 합
 
-	//	for (int i = 1; i <= 9; i++)
+	//	int j = 0;
+	//	
+	//	for (int i = 1; i <= 10; i++)
 	//	{
-	//		for (int j = 1; j <= 9;j++)
-	//		{
-	//			printf("%d X %d = %d\n", i, j, i*j);
+	//		j += i;
+	//	}
+	//	printf("1부터 10까지의 합은 : %d\n", j);
+
+#pragma endregion
+
+#pragma region star 
+
+	//	for (int i = 1; i <= 5; i++)
+	//	{
+	//		for (int j = 0; j<i; j++)
+	//		{			
+	//			printf("*");
 	//		}
 	//		printf("\n");
 	//	}
-
-#pragma endregion
 
 #pragma endregion
 
