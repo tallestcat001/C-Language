@@ -1,97 +1,103 @@
 #include <stdio.h>
-#define SIZE 5
 void main()
 {
 
-#pragma region 자료형 변환
+#pragma region 주소 연산자
 
-	// 서로 다른 자료형을 가지고 있는 변수끼리 연산이 이루어질 때 기존에 지정했던 자료형을 다른 자료형으로 변환하는 과정.
-
-#pragma region 암묵적 형변환
-
-	// 서로 다른 자료형으로 연산이 이루어질 때 자료형의 크기가 큰 자료형으로 변환되는 과정.
+	// 변수의 주소값을 반환하는 연산자.
 
 	// int data = 10;
-	// float storage = 7.5f;
+	// 
+	// printf("data의 주소 값은 : %p\n", &data); // %f : 변수의 주소값을 표현.
+
+	// 데이터의 주소값은 해당 데이터가 저장된 메모리의 시작 주소를 의미하며, 
+	// 메모리의 공강은 1 byte의 크기로 나누어 표현함.
+
+#pragma endregion
+
+#pragma region sizeof() 연산자
+
+	// 변수의 메모리 크기를 반환하는 연산자.
+
+	// printf("int 변수의 크기는 : %u byte\n", sizeof(int));
+	// printf("float 변수의 크기는 : %u byte\n", sizeof(float));
+
+#pragma endregion
+
+#pragma region 포인터
+
+	// 메모리의 주소값을 저장할 수 있는 변수.
+
+	// int value = 100;
+	// int* ptr = NULL;
+	// ptr = &value; 
+
+	// printf("ptr의 값은 : %p\n", ptr);
+	// printf("ptr의 메모리 주소는 : %p\n", &ptr);
+	// printf("value의 메모리 주소 : %p\n", &value);
+
+	// 포인터 변수도 자신의 메모리 공간을 가지고 있으며, 
+	// 포인터 변수에 변수의 주소를 저장하게 되면 해당 변수의 시작 주소를 가리키게됨.
+
+	// int attack = 50;
+	// int* iptr = &attack;
  
-	// printf("data + storage를 연산한 값은 : %f\n", data + storage);
-
-	// data = storage; // 정수부분만 저장.
-
-	// printf("data의 값은 : %d\n", data);
-
-	// 표현범위가 작은 데이터에 표현범위가 큰 데이터를 저장하게 되면 암묵적으로 데이터 손실이 일어남.
-
-#pragma endregion
-
-#pragma region 명시적 형변환
-
-	// 연산이 이루어지기 전에 사용자가 직접 자료형을 변환하는 과정.
-	
-	// int health = 10;
-	// int armor = 3;
+	// printf("attack의 값은 : %d\n", attack);
  
-	// float result = (float)health / armor; // int형의 나눗셈은 정수만 표현.
+	// *iptr = 99;
+ 
+	// printf("attack의 값은 : %d\n", attack);
 
-	// printf("result 변수의 값은 : %f\n",result);
-	
-	// 정수형 변수끼리 연산을 수행하게 되면 정수의 결과값만 가질 수 있음.
+	// 변수의 주소는 프로그램이 실행될 때마다 변경되며, 
+	// 포인터가 가리키는 메모리 공간의 자료형은 알 수 없으므로 포인터가 가리키는 메모리의 자료형을 선언해주어야 함.
 
-#pragma endregion
+	// float damage = 10.5;
+	// int* ptr1 = &damage;
+ 
+	// printf("ptr1 변수가 가리키는 값은 : %f\n", *ptr1);
 
-#pragma endregion
+	// 포인터 변수를 저장하기 위해 주소 값을 저장할 변수의 자료형과 포인터 병수의 자료형이 일치해야 함.
 
-#pragma region 메크로
+	// float* fptr = NULL;
+ 
+	// printf("fptr 포인터 변수의 메모리 크기는 : %d\n", sizeof(fptr));
 
-	// 프로그램내에서 특정한 데이터가 문자열로 정의되고 처리되는 과정.
+	// 포인터 변수의 크기는 cpu가 한번에 처리할 수 있는  크기로 정해지며, 한 번에 처리할수 있는 크기는 운영체제에 따라 정해짐.
 
-	// printf("SIZE 메크로의 값은 : %d\n", SIZE);
+	// float x = 0;
+	// float y = 0;
+	// float* fptr = 0;
+ 
+	// printf("변수 x의 값은 : %f\n", x);
+	// printf("변수 y의 값은 : %f\n", y);
+ 
+	// fptr = &x;
+	// *fptr = 66.75f;
 
-	// 메크로의 경우 자료형이 존재하지 않으므로 메모리 공간을 가지고 있지 않음.
-
-	// 메크로의 과정은 컴파일 이전에 실행되며, 
-	// 각 메크로가 실행될 때 메크로의 대체 목록을 넣어야 하므로 프로그램의 크기가 커지게 됨.
-
-#pragma endregion
-
-#pragma region 단축 평가 계산
-
-	// 첫 번째 인수의 값을 결정하기에 충분하지 않으면 두 번째 인수를 계산하는 부분을 수행하지 않는 계산.
-
-	//	int x = 1;
-	//	int y = 2;
-	
-	//	if (x == 0 && y++)
-	//	{
-	//		printf("AND의 연산이 '참'입니다.\n");
-	//	}
-	
-	//	printf("y의 값은 : %d\n", y);
-
-#pragma endregion
-
-#pragma region (1)부터 (10)까지의 합
-
-	//	int j = 0;
-	//	
-	//	for (int i = 1; i <= 10; i++)
-	//	{
-	//		j += i;
-	//	}
-	//	printf("1부터 10까지의 합은 : %d\n", j);
+	// printf("변수 x의 값은 : %.2f\n", x);
+ 
+	// fptr = &y;
+	// *fptr = 99.825f;
+ 
+	// printf("변수 y의 값은 : %.3f\n", y);
 
 #pragma endregion
 
-#pragma region star 
+#pragma region 상수 지시 포인터
 
-	//	for (int i = 1; i <= 5; i++)
-	//	{
-	//		for (int j = 0; j<i; j++)
-	//		{			
-	//			printf("*");
-	//		}
-	//		printf("\n");
-	//	}
+	// 포인터 변수를 상수로 선언하여, 포인터 변수가 가리키고 있는 주소에 존재하는 값을 변경할 수 없도록 설정하는것.
+
+	// int a = 10;
+	// int b = 20;
+	// const int* cptr = NULL;
+ 
+	// cptr = &a;
+	// printf("cptr의 값은 : %p\n", cptr);
+ 
+	// cptr = &b;
+	// printf("cptr의 값은 : %p\n", cptr);
+
+	// 상수로 선언한 포인터는 해당 변수의 값을 변경할 수 없지만, 다른 변수의 주소는 가리킬 수 있음.
 
 #pragma endregion
 
