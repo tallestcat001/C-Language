@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class6th (Repetition Statem
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class7th (Type Conversion)", "..\Class7th (Conversion of data types)\Class7th (Conversion of data types).vcxproj", "{0D8874EB-3D04-4151-858F-F72D182A78EA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class8th (Pointer)", "..\Class8th (Pointer)\Class8th (Pointer).vcxproj", "{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{0D8874EB-3D04-4151-858F-F72D182A78EA}.Release|x64.Build.0 = Release|x64
 		{0D8874EB-3D04-4151-858F-F72D182A78EA}.Release|x86.ActiveCfg = Release|Win32
 		{0D8874EB-3D04-4151-858F-F72D182A78EA}.Release|x86.Build.0 = Release|Win32
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Debug|x64.ActiveCfg = Debug|x64
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Debug|x64.Build.0 = Debug|x64
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Debug|x86.ActiveCfg = Debug|Win32
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Debug|x86.Build.0 = Debug|Win32
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Release|x64.ActiveCfg = Release|x64
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Release|x64.Build.0 = Release|x64
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Release|x86.ActiveCfg = Release|Win32
+		{816C0421-1BDA-4B21-BF44-D7CDE5F8487B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
