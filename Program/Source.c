@@ -1,84 +1,94 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+struct Goblin
+{
+	char grade;
+	int health;
+	const char* name;
+};
+struct GameObject
+{
+	short z; 
+	int x;
+	double y;
+
+	// 구조체 크기의 경우 맴버 변수의 순서에 따라 메모리의 크기가 다르게 설정될 수 있으며, 
+	// 구조체 크기를 결정하는 형태는 기본 자료형으로만 구성됨.
+};
 int main()
 {
 
-#pragma region 동적 할당
+#pragma region 구조체
 
-	// 프로그램을 실행중에 필요한 만큼 메모리를 할당하는 작업.
+	// 여러개의 변수를 하나의 집합으로 구조화한 다음 하나의 객체를 생성하는 것.
 
-	// int* ptr = (int *)malloc(sizeof(int));
+	// struct Goblin goblin1;
 
-	// 동적 할당은 실행 시간에 가변적으로 메모리의 크기를 변경시킬 수 있으며, 
-	// 동적으로 메모리를 크기를 할당할 때 바이트 단위로 반환.
+	// goblin1.grade = 'A';
+	// goblin1.health = 100;
+	// goblin1.name = "난폭한 고블린";
+ 
+	// printf("goblin1의 주소값은 : %p\n", &goblin1);
+ 
+	// printf("goblin.grade의 값은 : %c\n", goblin1.grade);
+	// printf("goblin.health의 값은 : %d\n", goblin1.health);
+	// printf("goblin.name의 값은 : %s\n", goblin1.name);
 
-	// printf("ptr이 가리키는 값은 : %d\n", *ptr);
+	// 구조체를 선언하기 전에 구조체는 메모리 공간이 생성되지 않으므로,
+	// 구조체 내부에 있는 데이터를 초기화 할 수 없음.
 
-	// *ptr = 100;
+	// struct Goblin goblin2 = {'S',200,"진화한 고블린"};
+ 
+	// printf("goblin2.grade의 값은 : %c\n", goblin2.grade);
+	// printf("goblin2.health의 값은 : %d\n", goblin2.health);
+	// printf("goblin2.name의 값은 : %s\n", goblin2.name);
 
-	// printf("ptr이 가리키는 값은 : %d\n", *ptr);
-
-	// 메모리를 동적 할당할 때 주조를 범용 포인터로 반환하기 때문에
-	//  자료형을 반환한 다음 메모리에 할당해야함.
-
-	// free(ptr);
-	// free(ptr); // 2번 사용시 오류발생.
-
-	// 동적으로 할당한 메모리는 힙 영역에 보관되어 있으므로, 
-	// 사용이 끝나면 직접 해제해주어야함.
+	// 구조체의 데이터를 초기화할 때 초기화 리스트를 사용하여 초기화 할 수 있으며, 
+	// 왼쪽에서부터 오른쪽으로 순서대로 초기화함.
 
 #pragma endregion
 
-#pragma region 댕글링 포인터
+#pragma region 바이트 패딩
 
-	// 이미 해제된 메모리 영역을 가리키는 포인터.
+	// 맴버 변수를 메모리에서 CPU로 읽을 때 한번에 읽을 수 있도록, 
+	// 컴파일러가 레지스터의 블록에 맞추어 바이트를 패딩해주는 최적화 작업.
 
-	// int* ptr1 = malloc(4);
+	// struct GameObject gameObject;
+	
+	// printf("GameObject의 크기는 : %d\n", sizeof(gameObject));
 
-	// *ptr1 = 100;
- 
-	// printf("ptr1이 가르키는 값은 : %d\n", *ptr1);
-
-	// free(ptr1);
-
-	// ptr1 = NULL;
-
-	// *ptr1 = 999; // 해제된 메모리 공간에 접근하여 값을 저장.
- 
-	// printf("ptr1이 가르키는 값은 : %d\n", *ptr1);
+	// 구조체의 크기는 구조체를 구성하는 맴버 중에서 크기가 가장 큰 자료형의 배수가 되도록 정렬함.
 
 #pragma endregion
 
-#pragma region 동적 배열
+#pragma region 회문
 
-	// int dynamicarraysize = 5;
- 
-	// int* arrptr = (int*)malloc(sizeof(int) * dynamicarraysize);
- 
-	// int size = (sizeof(int) * dynamicarraysize) / sizeof(int);
+	int a = 0;
 
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	arrptr[i] = i + 1;
-	// 	printf("arrptr[%d] : %d\n", i, arrptr[i]);
-	// } 
-	// free(arrptr);
+	const char* name = "level";
 
-	// dynamicarraysize = 10;
+	int size = strlen(name);
 
-	// arrptr = (int*)malloc(sizeof(int) * dynamicarraysize);
+	for (int i = 0; i < size / 2; i++)
+	{
+		if (name[i] != name[size - 1 - i])
+		{
+			a = 1;
+		}
+		else
+		{
+			a = 0;
+		}
+	}
 
-	// size = (sizeof(int) * dynamicarraysize) / sizeof(int);
-
-	// printf("\n");
-
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	arrptr[i] = i + 1;
-	// 	printf("arrptr[%d] : %d\n", i, arrptr[i]);
-	// }
- 
-	// free(arrptr);
+	if (a == 1)
+	{
+		printf("회문이 아닙니다.\n");
+	}
+	else
+	{
+		printf("회문입니다.\n");
+	}
 
 #pragma endregion
 
