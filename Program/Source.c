@@ -1,124 +1,75 @@
 #include <stdio.h>
-typedef struct Vector2
+#define _CRT_SECURE_NO_WARNINGS
+#define size 1000
+void load(const char *name)
 {
-	int x;
-	int y;
-}Vector2;
-typedef struct
-{
-	int x;
-	int y;
-	int z;
-}Vector3;
-enum STATUS
-{
-	// 열거형 중간에 값을 변경하게 되면 그 다음의 값도 이전의 값에 영향을 받은 상태로 증가함. 
+	FILE* file = fopen(name, "r");
 
-	IDLE,
-	ATTACK,
-	DIE
+	char buffer[size] = { 0, };
 
-	// 열거형은 0부터 시작하며, 1씩 증가함.
+	fread(buffer, 1, size, file);
+
+	printf("%s", buffer);
+
+	fclose(file);
 };
 int main()
 {
 
-#pragma region typedef
+#pragma region 파일 입출력
 
-	// Vector2 vector2;
- 
-	// vector2.x = 10;
-	// vector2.y = 20;
- 
-	// printf("vector2 x : %d\n", vector2.x);
-	// printf("vector2 y : %d\n", vector2.y);
-	// printf("\n");
+	// 파일 입출력을 위해서는 파일을 열고 닫는 과정이 필요함.
+	// 파일을 열기 위해서는 fopen 함수를 사용함.
+	// fopen 함수는 파일의 경로와 파일의 모드를 인자로 받음.
+	// 파일의 경로는 파일의 경로를 문자열로 입력하면 됨.
 
-	// Vector3 vector3 = { 5,10,15 };
+	// r : 읽기 모드
+	// w : 쓰기 모드
+	// a : 추가 모드
+	// r+ : 읽기/쓰기 모드
+	// w+ : 읽기/쓰기 모드	
+	// a+ : 읽기/쓰기 모드
+
+	// FILE *file = fopen("data.txt","w");
  
-	// printf("vector3 x : %d\n", vector3.x);
-	// printf("vector3 y : %d\n", vector3.y);
-	// printf("vector3 z : %d\n", vector3.z);
+	// fputs("level : 5", file);
+	// fputs("stage : 3", file);
+	// fputs("hp : 100", file);
+ 
+	// fclose(file);
+
+	// fclose 함수는 파일의 포인터를 인자로 받음.
+	// 파일을 닫으면 파일의 포인터가 NULL로 초기화됨.
+	// 파일을 닫지 않으면 파일이 계속 열려있게 되어 데이터가 손실될 수 있음.
+
+	// FILE* file = fopen("data.txt", "r");
+ 
+	// char buffer[size] = { 0, };
+ 
+	// fread(buffer, 1, size, file);
+ 
+	// printf("%s", buffer);
+ 
+	// fclose(file);
+
+	// 파일의 내용을 읽어서 저장.
+
+	// fread 함수는 파일의 포인터, 읽을 데이터의 크기, 읽을 데이터의 개수, 파일의 포인터를 인자로 받음.
+
+
 
 #pragma endregion
 
-#pragma region 열거형
+#pragma region ASCII Generator
 
-	//	int a;
-	//	scanf_s("%d", &a);
-	//	enum STATUS status = a;
-	
-	//	printf("status의 값은 : %d\n", status);
-	
-	//	switch (status)
-	//	{
-	//		case IDLE: printf("대기 상태\n");
-	//			break;
-	//		case ATTACK: printf("공격 상태\n");
-	//			break;
-	//		case DIE: printf("사망 상태\n");
-	//			break;
-	//	}
+	// load("dragon.txt");
 
-#pragma endregion
+	while (1)
+	{
+		load("data.txt");
 
-#pragma region 팩토리얼
-
-	//	int result = 1;
-	//	int n;
-	//	printf("값을 입력하세요 : ");
-	//	scanf_s("%d", &n);
-	
-	//	for (int i = n; i >= 1; i--)
-	//	{
-	//		result *= i;
-	//	}
-	
-	//	printf("%d! = %d", n,result);
-
-#pragma endregion
-
-#pragma region 이중 포인터
-
-	// int data = 10;
-	// int *ptr = &data;
-	// int **dptr = &ptr;
-
-	// printf("data의 값은 : %d\n", data);
-
-	// *ptr = 20;
-
-	// printf("data의 값은 : %d\n", data);
- 
-	// **dptr = 30;
- 
-	// printf("data의 값은 : %d\n", data);
-
-#pragma endregion
-
-#pragma region 이차원 배열
-
-	// 배열의 요소로 또다른 배열을 가지는 배열.
-
-	//	int array2D[3][3] =
-	//	{
-	//		{1,2,3},
-	//		{4,5,6},
-	//		{7,8,9}
-	//	};
-	
-	//	printf("array2D[1][0]의 값은 : %d\n", array2D[1][0]);
-	
-	//	for (int i = 0; i < 3; i++)
-	//	{
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			printf("%d ", array2D[i][j]);
-	//		}
-	//		printf("\n");
-	//	}
-
-	// 2차원 배열은 행과 열로 구분되며, 앞에 있는 배열은 행을 의미하고 뒤에 있는배열은 열을 의미함.
+		system("cls");
+	}
 
 #pragma endregion
 
