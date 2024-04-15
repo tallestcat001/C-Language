@@ -11,11 +11,11 @@ void gotoXY(int x, int y)
 {
 	// X축과 Y축 좌표 설정.
 
-	COORD postion = { x , y };
+	 COORD postion = { x , y };
 
 	// 커서이동함수.
 
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), postion);
+	 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), postion);
 
 	// GetStdHandle(STD_OUTPUT_HANDLE) :표준 출력 핸들을 가져옴.
 	// SetConsoleCursorPosition : 콘솔창의 커서를 이동함.
