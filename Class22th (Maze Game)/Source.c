@@ -37,7 +37,7 @@ void randerer()
 			}
 			else if (maze[i][j] == '0')
 			{
-				printf(" ");
+				printf("  ");
 			}
 			else if (maze[i][j] == '2')
 			{
